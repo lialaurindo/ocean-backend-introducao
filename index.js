@@ -37,7 +37,7 @@ app.get('/herois', async function (req, res) {
 
 
 //Read by ID: Visualizar um item pelo seu ID
-app.get('/herois/:id', function (req, res) {
+app.get('/herois/:id', async function (req, res) {
   //Recebemos o ID que iremos buscar
   const id = req.params.id;
   const item = await collection.findOne({_id: new ObjectId(id)});
