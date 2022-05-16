@@ -6,9 +6,9 @@ const dbName = 'ocean_bancodedados_13_05_2022';
 
 async function main () {
 console.log ('Conectando com banco de dados...')
-const client = await MongoClient.connect (url);
-const db = client.db(dbName);
-const collection = db.collection(herois);
+// const client = await MongoClient.connect (url);
+// const db = client.db(dbName);
+// const collection = db.collection(herois);
 console.log ('Conexão com o banco de dados realizada com sucesso');
 
 const app = express()
@@ -118,8 +118,11 @@ const itemEncontrando = await collection.findOne({_id: new ObjectId(id)});
 
 
 //Incluindo o console.log apenas para dar retorno no terminal quando rodar 
-app.listen(3000, () => console.log('aplicação rodando em localhost:3000'))
+// O RailWay que define a porta, deste modo inserimos o process.env.PORT. Antes: app.listen(3000, () => console.log('aplicação rodando em localhost:3000'))
+app.listen(process.env.PORT || 3000, () => console.log('aplicação rodando em localhost:3000'))
 
 }
+
+
 
 main (); 
